@@ -1,0 +1,100 @@
+.OVERARCHING {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+
+  /* border: solid black 5px; */
+  margin-top: 64px;
+  padding-top: 32px;
+}
+
+
+.TileGrid {
+  /* height: 50vh; */
+
+  max-height: 60vh;
+
+  display: grid;
+
+  justify-content: center;
+  align-content: center;
+
+  grid-template-columns: repeat( 5, 4em );
+  grid-template-rows: repeat( 6, 4em );
+
+  /* border: 5px solid limegreen; */
+
+  gap: 0.25em;
+
+  margin-bottom: 1.5em;
+}
+
+.Tile {
+  background-color: white;
+  border: solid rgb(204, 204, 204) 1.5px;
+
+  font-size: 2em;
+
+  text-transform: uppercase;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.Keyboard {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  position: fixed;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+
+  /* border: solid 5px red; */
+}
+
+.FirstRow, .SecondRow, .ThirdRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes SpinLetter {
+  10% {
+    transform: translateX( -5% );
+  }
+
+  30% {
+    transform: translateX( 5% );
+  }
+
+  50% {
+    transform: translateX( -7.5% );
+  }
+
+  70% {
+    transform: translateX( 7.5% );
+  }
+
+  90% {
+    transform: translateX( -5% );
+  }
+
+  100% {
+    transform: translateX( 0 );
+  }
+}
