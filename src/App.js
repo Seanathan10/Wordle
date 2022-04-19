@@ -7,11 +7,31 @@ import Header from './Components/Header';
 
 import Tile from './Components/Tile';
 
-// const styles = WordleButtonTheme => ({
-//   buttonPadding: {    
-//     padding: '30px',   
-//   },
-// });
+import { createTheme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
+
+import { grey } from '@material-ui/core/colors';
+import { yellow } from '@material-ui/core/colors';
+import { green } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
+
+const ButtonThemes = createTheme({
+  palette: {
+    primary: grey,
+    warning: yellow,
+    success: green,
+    error: red,
+    neutral: {
+      main: '#e0e0e0',
+      contrastText: '#fff',
+    },
+  }
+});
+
+const Neutral = createTheme( { palette: { primary: grey } } );
+const Wrong = createTheme( { palette: { primary: red } } );
+const Correct = createTheme( { palette: { primary: green } } );
+const WrongPos = createTheme( { palette: { primary: yellow } } );
 
 function App() {
   return (
@@ -23,10 +43,10 @@ function App() {
       <div className='Container'>
 
         <div className='TileGrid'>
-          <Tile></Tile>
-          <Tile></Tile>
-          <Tile></Tile>
-          <Tile></Tile>
+          <Tile Data="True"></Tile>
+          <Tile Data="Incorrect"></Tile>
+          <Tile Data="Correct"></Tile>
+          <Tile Data="WrongPos"></Tile>
           <Tile></Tile>
           <Tile></Tile>
           <Tile></Tile>
@@ -57,12 +77,13 @@ function App() {
 
 
         <div className='Keyboard'>
+<ThemeProvider theme={ ButtonThemes }>
           <div className='FirstRow'>
-            <KeyboardButton Letter="Q"></KeyboardButton>
-            <KeyboardButton Letter="W"></KeyboardButton>
-            <KeyboardButton Letter="E"></KeyboardButton>
-            <KeyboardButton Letter="R"></KeyboardButton>
-            <KeyboardButton Letter="T"></KeyboardButton>
+            <KeyboardButton Letter="Q" Theme={ Correct }></KeyboardButton>
+            <KeyboardButton Letter="W" Theme={ WrongPos }></KeyboardButton>
+            <KeyboardButton Letter="E" Theme={ Wrong }></KeyboardButton>
+            <KeyboardButton Letter="R" Theme={ Neutral }></KeyboardButton>
+            <KeyboardButton Letter="T" Theme={ Wrong }></KeyboardButton>
             <KeyboardButton Letter="Y"></KeyboardButton>
             <KeyboardButton Letter="U"></KeyboardButton>
             <KeyboardButton Letter="I"></KeyboardButton>
@@ -93,6 +114,7 @@ function App() {
             <KeyboardButton Letter="M"></KeyboardButton>
             <KeyboardButton Letter="BACKSPACE"></KeyboardButton>
           </div>
+</ThemeProvider>
         </div>
 
 

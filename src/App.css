@@ -50,6 +50,43 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  user-select: none;
+}
+
+.Tile[ Data="Empty" ] {
+  background-color: white;
+  border: solid rgb(204, 204, 204) 1.5px;
+
+  font-size: 2em;
+
+  text-transform: uppercase;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+}
+
+.Tile[ Data="True" ] {
+  border: solid 2px rgb(119, 119, 119);
+}
+
+.Tile[ Data="Incorrect" ] {
+  background-color: rgb(168, 168, 168);
+  border: solid rgb( 168, 168, 168 ) 1.5px;
+}
+
+.Tile[ Data="Correct" ] {
+  background-color: limegreen;
+  border: solid limegreen 1.5px;
+}
+
+.Tile[ Data="WrongPos" ] {
+  /* background-color: rgb(198, 181, 102); */
+  background-color: gold;
+  border: 1.5px gold solid;
 }
 
 

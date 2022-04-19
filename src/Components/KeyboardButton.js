@@ -14,6 +14,8 @@
 import { withStyles} from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 
+import { ThemeProvider } from '@material-ui/core';
+
 const ButtonStyles = theme => ({
   buttonPadding: {    
     padding: '0px',
@@ -26,14 +28,19 @@ const ButtonStyles = theme => ({
 function KeyboardButton( Props ) {
   const { classes } = Props;
 
-  return (      
-      <Button
-        variant="contained"
-        color=""
-        className={ ( classes.buttonPadding, classes.buttonMargin ) }
-      >
-        { Props.Letter }
-      </Button>
+  return (
+    <div>
+      <ThemeProvider theme={ Props.Theme }>
+        <Button
+          variant="contained"
+          // color={ Props.Color }
+          color="primary"
+          className={ ( classes.buttonPadding, classes.buttonMargin ) }
+        >
+          { Props.Letter }
+        </Button>
+      </ThemeProvider>
+    </div>
   );
 }
 

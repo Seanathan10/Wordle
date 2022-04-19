@@ -1,8 +1,8 @@
 import React from "react";
 
-function Tile() {
+function Tile( Props ) {
     return(
-        <div className="Tile">
+        <div className="Tile" Data={ Props.Data } >
             a
         </div>
     )
